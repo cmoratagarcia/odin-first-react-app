@@ -15,7 +15,29 @@ function GeneralInfo() {
     setIsEditing(false);
   }
 
-  return <div>General Info</div>;
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Full Name"
+        value={formData.name}
+        onChange={handleChange}
+      />
+      <input
+        type="tel"
+        placeholder="Phone number"
+        value={formData.phone}
+        onChange={handleChange}
+      />
+      <input
+        type="email"
+        placeholder="Email address"
+        value={formData.email}
+        onChange={handleChange}
+      />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
 }
 
 export default GeneralInfo;
