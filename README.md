@@ -1,16 +1,17 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+First project in the React course of the Odin Project.
 
-Currently, two official plugins are available:
+Create a small application where users can input their information and generate a CV
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Requirements:
+Your application should include:
 
-## React Compiler
+- A section to add general information (name, phone no...)
+- A section to add educational experience
+- A section to add practical experience
+- Include an edit and submit button for each section or for the whole CV. The submit button should submit your form and display the value of your input fields in HTML elements
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Create a components directory under your src directory and add your components.
+2. Include a styles directory under your src directory for your CSS files. You’ll need to import these in the component files to use them.
+3. Push the results and deploy them
