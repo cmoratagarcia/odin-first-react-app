@@ -1,13 +1,7 @@
 import { useState } from "react";
 
-function Education() {
+function Education({ data: formData, setData: setFormData }) {
   const [isEditing, setIsEditing] = useState(true); //tell the component whether it's in Editing or Display mode
-  const [formData, setFormData] = useState({
-    school: "",
-    title: "",
-    startDate: "",
-    endDate: "",
-  });
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });

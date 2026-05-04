@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-function Experience() {
+function Experience({ jobs, setJobs }) {
   const [isEditing, setIsEditing] = useState(true); //tell the component whether it's in Editing or Display mode
-  const [jobs, setJobs] = useState([]); // submitted jobs
   const [currentJob, setCurrentJob] = useState({
     company: "",
     position: "",
