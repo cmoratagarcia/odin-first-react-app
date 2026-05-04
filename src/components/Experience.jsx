@@ -23,7 +23,7 @@ function Experience() {
       {isEditing ? (
         <div>
           <input
-            name="compnay"
+            name="company"
             type="text"
             placeholder="Company name Name"
             value={currentJob.company}
@@ -55,12 +55,16 @@ function Experience() {
         </div>
       ) : (
         <div>
-          <h2>{currentJob.company}</h2>
-          <p>{currentJob.position}</p>
-          <p>
-            {currentJob.startDate} – {currentJob.endDate}
-          </p>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
+          {jobs.map((job, index) => (
+            <div key={index}>
+              <h2>{job.company}</h2>
+              <p>{job.position}</p>
+              <p>
+                {job.startDate} – {job.endDate}
+              </p>
+            </div>
+          ))}
+          <button onClick={() => setIsEditing(true)}>Add Job</button>
         </div>
       )}
     </div>
