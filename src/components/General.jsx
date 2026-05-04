@@ -17,25 +17,36 @@ function GeneralInfo() {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Full Name"
-        value={formData.name}
-        onChange={handleChange}
-      />
-      <input
-        type="tel"
-        placeholder="Phone number"
-        value={formData.phone}
-        onChange={handleChange}
-      />
-      <input
-        type="email"
-        placeholder="Email address"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <button onClick={handleSubmit}>Submit</button>
+      {isEditing ? (
+        <div>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type="tel"
+            placeholder="Phone number"
+            value={formData.phone}
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            placeholder="Email address"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <button onClick={handleSubmit}>Submit</button>
+        </div>
+      ) : (
+        <div>
+          <h2>{formData.name}</h2>
+          <p>{formData.phone}</p>
+          <p>{formData.email}</p>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
+        </div>
+      )}
     </div>
   );
 }
