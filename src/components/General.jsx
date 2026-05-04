@@ -8,6 +8,13 @@ function GeneralInfo() {
     email: "",
   });
 
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+  function handleSubmit() {
+    setIsEditing(false);
+  }
+
   return <div>General Info</div>;
 }
 
