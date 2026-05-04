@@ -2,7 +2,8 @@ import { useState } from "react";
 
 function Experience() {
   const [isEditing, setIsEditing] = useState(true); //tell the component whether it's in Editing or Display mode
-  const [formData, setFormData] = useState({
+  const [jobs, setJobs] = useState([]); // submitted jobs
+  const [currentJob, setCurrentJob] = useState({
     company: "",
     position: "",
     startDate: "",
@@ -10,12 +11,13 @@ function Experience() {
   });
 
   function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setCurrentJob({ ...currentJob, [e.target.name]: e.target.value });
   }
   function handleSubmit() {
+    setJobs([...jobs, currentJob]);
+    setCurrentJob({ company: "", position: "", startDate: "", endDate: "" });
     setIsEditing(false);
   }
-
   return (
     <div>
       {isEditing ? (
@@ -24,21 +26,21 @@ function Experience() {
             name="compnay"
             type="text"
             placeholder="Company name Name"
-            value={formData.company}
+            value={currentJob.company}
             onChange={handleChange}
           />
           <input
             name="position"
             type="text"
             placeholder="Position"
-            value={formData.position}
+            value={currentJob.position}
             onChange={handleChange}
           />
           <label>Start Date</label>
           <input
             type="month"
             name="startDate"
-            value={formData.startDate}
+            value={currentJob.startDate}
             onChange={handleChange}
           />
 
@@ -46,17 +48,17 @@ function Experience() {
           <input
             type="month"
             name="endDate"
-            value={formData.endDate}
+            value={currentJob.endDate}
             onChange={handleChange}
           />
           <button onClick={handleSubmit}>Submit</button>
         </div>
       ) : (
         <div>
-          <h2>{formData.company}</h2>
-          <p>{formData.position}</p>
+          <h2>{currentJob.company}</h2>
+          <p>{currentJob.position}</p>
           <p>
-            {formData.startDate} – {formData.endDate}
+            {currentJob.startDate} – {currentJob.endDate}
           </p>
           <button onClick={() => setIsEditing(true)}>Edit</button>
         </div>
