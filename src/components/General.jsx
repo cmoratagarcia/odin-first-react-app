@@ -20,18 +20,21 @@ function GeneralInfo() {
       {isEditing ? (
         <div>
           <input
+            name="name"
             type="text"
             placeholder="Full Name"
             value={formData.name}
             onChange={handleChange}
           />
           <input
+            name="phone"
             type="tel"
             placeholder="Phone number"
             value={formData.phone}
             onChange={handleChange}
           />
           <input
+            name="email"
             type="email"
             placeholder="Email address"
             value={formData.email}
