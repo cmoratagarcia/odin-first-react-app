@@ -5,7 +5,8 @@ function Education() {
   const [formData, setFormData] = useState({
     school: "",
     title: "",
-    dates: "",
+    startDate: "",
+    endDate: "",
   });
 
   function handleChange(e) {
@@ -33,11 +34,19 @@ function Education() {
             value={formData.title}
             onChange={handleChange}
           />
+          <label>Start Date</label>
           <input
-            name="dates"
-            type="date"
-            placeholder="Date"
-            value={formData.dates}
+            type="month"
+            name="startDate"
+            value={formData.startDate}
+            onChange={handleChange}
+          />
+
+          <label>End Date</label>
+          <input
+            type="month"
+            name="endDate"
+            value={formData.endDate}
             onChange={handleChange}
           />
           <button onClick={handleSubmit}>Submit</button>
@@ -46,7 +55,9 @@ function Education() {
         <div>
           <h2>{formData.school}</h2>
           <p>{formData.title}</p>
-          <p>{formData.dates}</p>
+          <p>
+            {formData.startDate} – {formData.endDate}
+          </p>
           <button onClick={() => setIsEditing(true)}>Edit</button>
         </div>
       )}
