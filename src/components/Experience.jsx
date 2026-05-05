@@ -21,6 +21,7 @@ function Experience({ jobs, setJobs }) {
   function handleEdit(index) {
     setCurrentJob(jobs[index]); // load into form
     setJobs(jobs.filter((_, i) => i !== index)); // remove from list
+    setIsEditing(true);
   }
   function handleDelete(index) {
     setJobs(jobs.filter((_, i) => i !== index));
@@ -28,22 +29,26 @@ function Experience({ jobs, setJobs }) {
   function handleSubmit() {
     setIsEditing(false);
   }
+
+  function renderJobs() {
+    return jobs.map((job, index) => (
+      <div key={index}>
+        <h2>{job.company}</h2>
+        <p>{job.position}</p>
+        <p>
+          {job.startDate} – {job.endDate}
+        </p>
+        <button onClick={() => handleEdit(index)}>Edit</button>
+        <button onClick={() => handleDelete(index)}>Delete</button>
+      </div>
+    ));
+  }
   return (
     <div>
       {isEditing ? (
         <div>
           {/* Show already-added jobs above the form */}
-          {jobs.map((job, index) => (
-            <div key={index}>
-              <h2>{job.company}</h2>
-              <p>{job.position}</p>
-              <p>
-                {job.startDate} – {job.endDate}
-              </p>
-              <button onClick={() => handleEdit(index)}>Edit</button>
-              <button onClick={() => handleDelete(index)}>Delete</button>
-            </div>
-          ))}
+          {renderJobs()}
           {/* Form to keep adding jobs */}
           <input
             name="company"
@@ -80,19 +85,7 @@ function Experience({ jobs, setJobs }) {
           <button onClick={handleSubmit}>Save Section</button>
         </div>
       ) : (
-        <div>
-          {jobs.map((job, index) => (
-            <div key={index}>
-              <h2>{job.company}</h2>
-              <p>{job.position}</p>
-              <p>
-                {job.startDate} – {job.endDate}
-              </p>
-              <button onClick={() => handleEdit(index)}>Edit</button>
-              <button onClick={() => handleDelete(index)}>Delete</button>
-            </div>
-          ))}
-        </div>
+        <div>{renderJobs()}</div>
       )}
     </div>
   );
