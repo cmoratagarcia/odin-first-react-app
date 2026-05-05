@@ -17,6 +17,14 @@ function Experience({ jobs, setJobs }) {
     setJobs([...jobs, currentJob]);
     setCurrentJob({ company: "", position: "", startDate: "", endDate: "" });
   }
+
+  function handleEdit(index) {
+    setCurrentJob(jobs[index]); // load into form
+    setJobs(jobs.filter((_, i) => i !== index)); // remove from list
+  }
+  function handleDelete(index) {
+    setJobs(jobs.filter((_, i) => i !== index));
+  }
   function handleSubmit() {
     setIsEditing(false);
   }
@@ -32,6 +40,8 @@ function Experience({ jobs, setJobs }) {
               <p>
                 {job.startDate} – {job.endDate}
               </p>
+              <button onClick={() => handleEdit(index)}>Edit</button>
+              <button onClick={() => handleDelete(index)}>Delete</button>
             </div>
           ))}
           {/* Form to keep adding jobs */}
@@ -78,9 +88,10 @@ function Experience({ jobs, setJobs }) {
               <p>
                 {job.startDate} – {job.endDate}
               </p>
+              <button onClick={() => handleEdit(index)}>Edit</button>
+              <button onClick={() => handleDelete(index)}>Delete</button>
             </div>
           ))}
-          <button onClick={() => setIsEditing(true)}>Edit</button>
         </div>
       )}
     </div>
