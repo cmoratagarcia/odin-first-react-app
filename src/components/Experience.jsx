@@ -12,19 +12,33 @@ function Experience({ jobs, setJobs }) {
   function handleChange(e) {
     setCurrentJob({ ...currentJob, [e.target.name]: e.target.value });
   }
-  function handleSubmit() {
+
+  function handleAddJob() {
     setJobs([...jobs, currentJob]);
     setCurrentJob({ company: "", position: "", startDate: "", endDate: "" });
+  }
+  function handleSubmit() {
     setIsEditing(false);
   }
   return (
     <div>
       {isEditing ? (
         <div>
+          {/* Show already-added jobs above the form */}
+          {jobs.map((job, index) => (
+            <div key={index}>
+              <h2>{job.company}</h2>
+              <p>{job.position}</p>
+              <p>
+                {job.startDate} – {job.endDate}
+              </p>
+            </div>
+          ))}
+          {/* Form to keep adding jobs */}
           <input
             name="company"
             type="text"
-            placeholder="Company name Name"
+            placeholder="Company Name"
             value={currentJob.company}
             onChange={handleChange}
           />
@@ -50,7 +64,10 @@ function Experience({ jobs, setJobs }) {
             value={currentJob.endDate}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit}>Submit</button>
+          {/* Adds current job to the list, clears form */}
+          <button onClick={handleAddJob}>Add Job</button>
+
+          <button onClick={handleSubmit}>Save Section</button>
         </div>
       ) : (
         <div>
@@ -63,7 +80,7 @@ function Experience({ jobs, setJobs }) {
               </p>
             </div>
           ))}
-          <button onClick={() => setIsEditing(true)}>Add Job</button>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
         </div>
       )}
     </div>

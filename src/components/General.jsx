@@ -35,7 +35,7 @@ function GeneralInfo({ data: formData, setData: setFormData }) {
             value={formData.email}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={handleSubmit}>Save Section</button>
         </div>
       ) : (
         <div>
