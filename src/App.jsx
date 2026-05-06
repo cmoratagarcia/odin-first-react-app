@@ -32,14 +32,14 @@ function App() {
         </div>
       ) : (
         <div>
+          <button className="btn-main" onClick={() => setShowPreview(false)}>
+            Return to Form
+          </button>
           <CVPreview
             generalInfo={generalInfo}
             education={education}
             jobs={jobs}
           />
-          <button className="btn-main" onClick={() => setShowPreview(false)}>
-            Return to Form
-          </button>
         </div>
       )}
     </div>
