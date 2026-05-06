@@ -27,6 +27,9 @@ function Experience({ jobs, setJobs }) {
     setJobs(jobs.filter((_, i) => i !== index));
   }
   function handleSubmit() {
+    if (currentJob.company) {
+      setJobs([...jobs, currentJob]);
+    }
     setIsEditing(false);
   }
 
