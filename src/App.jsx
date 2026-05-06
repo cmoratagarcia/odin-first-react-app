@@ -26,7 +26,7 @@ function App() {
           <GeneralInfo data={generalInfo} setData={setGeneralInfo} />
           <Education data={education} setData={setEducation} />
           <Experience jobs={jobs} setJobs={setJobs} />
-          <button className="btn-primary" onClick={() => setShowPreview(true)}>
+          <button className="btn-main" onClick={() => setShowPreview(true)}>
             Generate CV
           </button>
         </div>
@@ -37,7 +37,7 @@ function App() {
             education={education}
             jobs={jobs}
           />
-          <button className="btn-primary" onClick={() => setShowPreview(false)}>
+          <button className="btn-main" onClick={() => setShowPreview(false)}>
             Return to Form
           </button>
         </div>

@@ -91,7 +91,9 @@ function Experience({ jobs, setJobs }) {
             onChange={handleChange}
           />
           {/* Adds current job to the list, clears form */}
-          <button onClick={handleAddJob}>Add Job</button>
+          <button className="btn-secondary" onClick={handleAddJob}>
+            Add Job
+          </button>
 
           <button className="btn-primary" onClick={handleSubmit}>
             Save Section
