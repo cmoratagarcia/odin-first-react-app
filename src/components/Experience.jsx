@@ -32,7 +32,7 @@ function Experience({ jobs, setJobs }) {
 
   function renderJobs(showActions) {
     return jobs.map((job, index) => (
-      <div key={index}>
+      <div className="job-entry" key={index}>
         <h2>{job.company}</h2>
         <p>{job.position}</p>
         <p>
@@ -40,15 +40,19 @@ function Experience({ jobs, setJobs }) {
         </p>
         {showActions && (
           <>
-            <button onClick={() => handleEdit(index)}>Edit</button>
-            <button onClick={() => handleDelete(index)}>Delete</button>
+            <button className="btn-secondary" onClick={() => handleEdit(index)}>
+              Edit
+            </button>
+            <button className="btn-danger" onClick={() => handleDelete(index)}>
+              Delete
+            </button>
           </>
         )}
       </div>
     ));
   }
   return (
-    <div>
+    <div className="section-card">
       {isEditing ? (
         <div>
           {/* Show already-added jobs above the form */}
@@ -86,12 +90,16 @@ function Experience({ jobs, setJobs }) {
           {/* Adds current job to the list, clears form */}
           <button onClick={handleAddJob}>Add Job</button>
 
-          <button onClick={handleSubmit}>Save Section</button>
+          <button className="btn-primary" onClick={handleSubmit}>
+            Save Section
+          </button>
         </div>
       ) : (
         <div>
           {renderJobs(false)}
-          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button className="btn-secondary" onClick={() => setIsEditing(true)}>
+            Edit
+          </button>
         </div>
       )}
     </div>

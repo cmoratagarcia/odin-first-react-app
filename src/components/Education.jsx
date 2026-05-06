@@ -11,7 +11,7 @@ function Education({ data: formData, setData: setFormData }) {
   }
 
   return (
-    <div>
+    <div className="section-card">
       {isEditing ? (
         <div>
           <input
@@ -43,7 +43,9 @@ function Education({ data: formData, setData: setFormData }) {
             value={formData.endDate}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit}>Save Section</button>
+          <button className="btn-primary" onClick={handleSubmit}>
+            Save Section
+          </button>
         </div>
       ) : (
         <div>
@@ -52,7 +54,9 @@ function Education({ data: formData, setData: setFormData }) {
           <p>
             {formData.startDate} – {formData.endDate}
           </p>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button className="btn-secondary" onClick={() => setIsEditing(true)}>
+            Edit
+          </button>
         </div>
       )}
     </div>

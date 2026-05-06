@@ -11,7 +11,7 @@ function GeneralInfo({ data: formData, setData: setFormData }) {
   }
 
   return (
-    <div>
+    <div className="section-card">
       {isEditing ? (
         <div>
           <input
@@ -35,14 +35,18 @@ function GeneralInfo({ data: formData, setData: setFormData }) {
             value={formData.email}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit}>Save Section</button>
+          <button className="btn-primary" onClick={handleSubmit}>
+            Save Section
+          </button>
         </div>
       ) : (
         <div>
           <h2>{formData.name}</h2>
           <p>{formData.phone}</p>
           <p>{formData.email}</p>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button className="btn-secondary" onClick={() => setIsEditing(true)}>
+            Edit
+          </button>
         </div>
       )}
     </div>
